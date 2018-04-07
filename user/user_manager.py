@@ -14,3 +14,6 @@ class UserManager(object):
         db.session.commit()
 
         return True
+
+    def login(self, jsonInfo):
+        pass
