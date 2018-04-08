@@ -8,7 +8,7 @@ def add_user():
     userManager = UserManager()
     data = {}
     data['status']= 'failed'
-    data['data'] =''
+    data['data'] ="{'username':'yao','password':'123'}"
     if request.method == 'POST':
         paramsJson = request.form['data']
         result= userManager.add_user(paramsJson)
@@ -29,5 +29,7 @@ def login():
         (status, result) = userManager.login(paramsJson)
 
         if status is True:
-            pass
+            data['status'] = 'success'
+            data['data']= result
+            return json.dumps(data)
 

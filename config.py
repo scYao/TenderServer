@@ -1,3 +1,5 @@
+#set debug, don't forget close it when online
+DEBUG = True
 # 数据库配置
 DIALECT = 'mysql'
 DRIVER = 'pymysql'

@@ -2,6 +2,7 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from TenderServer import app
 from models.user import *
+from models.tender import Tender
 from utils import db
 
 # 使用migrate绑定db和app
