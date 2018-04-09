@@ -18,5 +18,8 @@ class User(db.Model):
         result = check_password_hash(self.password, raw_password)
         return result
 
+    def __repr__(self):
+        return str(self.id)
+
 
 
