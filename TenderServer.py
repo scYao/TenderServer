@@ -9,11 +9,13 @@ from tender.tender_manager import TenderManager
 from user.user_manager import UserManager
 from utils import db
 from province_city.province_city_manage import ProvinceCityManage
+from utils import cache
 
 app = Flask(__name__)
 app.config.from_object(config)
 db.init_app(app=app)
 
+cache.init_app(app=app)
 
 @app.route('/')
 def hello_world():
@@ -81,6 +83,7 @@ def create_tender():
 
 # 获取招标列表
 @app.route('/tender_list/', methods=['GET', 'POST'])
+@cache.memoize(timeout=50)
 def tender_list():
     tenderManager = TenderManager()
     data = {}
